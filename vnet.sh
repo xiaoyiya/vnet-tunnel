@@ -223,7 +223,7 @@ source ~/.bashrc
 
 #获取服务器IP
 rm -rf /root/.ip.txt
-curl -s 'ip.sb' > /root/.ip.txt
+curl -s 'icanhazip.com' > /root/.ip.txt
 SERVER_IP=`sed -n '1p' /root/.ip.txt`
 #这里开始
 cd /root/
