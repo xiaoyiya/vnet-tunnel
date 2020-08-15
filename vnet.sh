@@ -19,7 +19,7 @@ Info="${Green_font_prefix}[信息]${Font_color_suffix}"
 address="${Green_font_prefix}[管理地址]${Font_color_suffix}"
 yunyi_end="重启服务器会导致数据丢失，为了稳定运行请尽可能保证服务器稳定。
 执行${Green_font_prefix}vnet${Font_color_suffix}命令会再次启动此脚本"
-yunyiya="www.yunyiya.com" 
+yunyiya="github.com/xiaoyiya/vnet-tunnel/raw/master" 
 
 #开始菜单
 start_menu(){
