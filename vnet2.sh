@@ -1,15 +1,5 @@
 #!/bin/bash
-#安装unzip和二进制文件
-VnetTunnel_install() {
-    yum -y install zip unzip
-	apt install -y zip unzip
-	cd /usr/local
-    mkdir vnet
-    cd vnet
-	wget -N --no-check-certificate "https://www.yunyiya.com/download/linux/tunnel.zip"
-	unzip tunnel.zip 
-    rm -f /usr/local/vnet/tunnel.zip
-}
+
 #客户端安装
 client_install() {
 	if [ "`ss -lnp |grep -w :8080`" ]; then
@@ -17,7 +7,14 @@ client_install() {
 		echo -e "\033[31m释放端口后可重新执行\033[0m"
 		exit 0
 	fi
-	VnetTunnel_install
+    yum -y install zip unzip
+    apt install -y zip unzip
+    cd /usr/local
+    mkdir vnet
+    cd vnet
+	wget -N --no-check-certificate "https://www.yunyiya.com/download/linux/tunnel.zip"
+	unzip tunnel.zip 
+    rm -f /usr/local/vnet/tunnel.zip
     rm -f /usr/local/vnet/server
     echo '
 #!/bin/bash
@@ -58,7 +55,14 @@ server_install() {
 		echo -e "\033[31m释放端口后可重新执行\033[0m"
 		exit 0
 	fi
-	VnetTunnel_install
+    yum -y install zip unzip
+    apt install -y zip unzip
+    cd /usr/local
+    mkdir vnet
+    cd vnet
+    wget -N --no-check-certificate "https://www.yunyiya.com/download/linux/tunnel.zip"
+    unzip tunnel.zip 
+    rm -f /usr/local/vnet/tunnel.zip
     rm -f /usr/local/vnet/client
     echo '
 #!/bin/bash
@@ -103,7 +107,7 @@ echo "
 2：安装VNET服务端(额外占用8081端口)                         
 
 "
-read -p "请输入你的选择 1|2|3|4: " select
+read -p "请输入你的选择 1|2|: " select
 case $select in
 1)
 client_install
